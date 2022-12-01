@@ -15,7 +15,7 @@ import { createOrGetUser } from '../utils'
 import useAuthStore from '../store/authStore'
 
 const Navbar = () => {
-  const { userProfile, addUser} = useAuthStore()
+  const { userProfile, addUser, removeUser} = useAuthStore()
   
   
   return (
@@ -33,7 +33,41 @@ const Navbar = () => {
         <div>Search</div>
         <div>
           {userProfile ? (
-            <div>{userProfile.userName}</div>
+            <div
+              className='flex gap-5 md:gap-10'
+            >
+              <Link href="/upload">
+                <button className='border-2 px-2 md:px-4 text-md font-semibold flex items-center gap-2'>
+                  <IoMdAdd className='text-xl'/> {` `}
+                  <span className='hidden md:block'>Upload</span>
+                </button>
+              </Link>
+              {userProfile.image && (
+                <Link href="/">
+                  <>
+                    <Image
+                        width={42}
+                        height={42}
+                        className='rounded-full'
+                        src={userProfile.image}
+                        alt='profile picture'
+                      
+                    />
+                    </>
+                </Link>
+              )}
+              <button
+                type='button'
+                className='px-2'
+                onClick={() => {
+                  googleLogout()
+                  removeUser()
+                }}
+              >
+                <AiOutlineLogout color='red' fontSize={21} className='text-xl'/>
+
+              </button>
+            </div>
           ): (
             <GoogleLogin
               onSuccess={(response) => createOrGetUser(response,addUser)}
