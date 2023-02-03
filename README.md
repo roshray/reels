@@ -87,7 +87,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+How to use the software and how to install them.
 * npm
   ```sh
   npm install npm@latest -g
@@ -116,7 +116,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Additional similar project's, code examples and demos are shared .
 
 _For more details, please refer to the [Documentation](https://github.com/roshray/)_
 
